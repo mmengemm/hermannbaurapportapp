@@ -1,0 +1,89 @@
+body{
+    background-color: white;
+    font-family: 'Ubuntu',sans-serif;
+    margin: 0;
+}
+#registerbody,#loginbody {
+    background-color: #404040;
+    font-family: 'Ubuntu',sans-serif;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.main{
+    background-color: white;
+    width: 60%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 11px 35px 2px rgba(0,0,0,0.14);
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    margin: auto auto auto auto;
+}
+.backbutton{
+    width: 10%;
+    border-radius: 50%;
+}
+a{
+    color: rgba(38, 50, 56, 0.73);
+    text-decoration: none;
+    font-size: small;
+}
+a:hover{
+    color: lightgray;
+}
+
+#verg{
+    margin-top:5px;
+}
+
+.loginform{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: auto auto auto auto;
+}
+.sign{
+    color: #e0053f;
+    font-weight: bold;
+    font-size: 23px;
+}
+.inp{
+    width: 76%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+    }
+
+.inp:focus {
+        border: 2px solid rgba(0, 0, 0, 0.18) !important;
+
+    }
+
+.submit {
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: #e0053f;
+    border: 0;
+    padding: 10px 40px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 5px;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    margin-bottom: 20px;
+}

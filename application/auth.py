@@ -3,7 +3,7 @@ from . import db, app
 from .forms import LoginForm
 from application import db_requests
 auth = Blueprint('auth', __name__)
-
+import os
 
 @auth.route('/')
 def login():

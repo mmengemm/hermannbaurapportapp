@@ -2,10 +2,12 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
+from flask_session import Session
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = Config.SECRET_KEY
 db = SQLAlchemy(app)
 db.init_app(app)
 

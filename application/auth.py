@@ -5,7 +5,7 @@ from application import db_requests
 auth = Blueprint('auth', __name__)
 import os
 
-@auth.route('/')
+@auth.route('/',methods=['GET','POST'])
 def login():
     error = None
     msg = None

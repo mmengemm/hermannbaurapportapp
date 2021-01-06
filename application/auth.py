@@ -1,7 +1,7 @@
 from flask import Blueprint,render_template, request,session
 from . import db, app
 from .forms import LoginForm
-from application import db_requests
+from .db_requests import *
 auth = Blueprint('auth', __name__)
 import os
 
@@ -14,7 +14,7 @@ def login():
         os.environ['USERNAME'] = form.username.data
         os.environ['PASSWORD'] = form.password.data
         session['username'] = form.username.data
-        ui = db_requests.UserInformation()
+        ui = UserInformation()
         user, error = ui.get_user(os.getenv('USERNAME'),os.getenv('PASSWORD'))
         if user is None:
             error = error

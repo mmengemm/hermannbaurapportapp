@@ -33,6 +33,7 @@ class UserInformation():
                 return None, error
         else:
             error = 'Benutzer konnte nicht gefunden werden. \n Versuche es mit einem anderen Benutzernamen oder registriere dich.'
-
+            return None, error
+            
     def verify_password(self,password):
         return self.hashing.check_value(self.password,password,self.salt)

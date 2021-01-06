@@ -20,7 +20,7 @@ class UserInformation():
     
     def get_user(self,username,password):
         user = User.query.filter(
-            User.username = username
+            User.username == username
         ).first()
 
         if user:

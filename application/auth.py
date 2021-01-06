@@ -4,6 +4,7 @@ from .forms import LoginForm
 from application import db_requests
 auth = Blueprint('auth', __name__)
 
+
 @auth.route('/')
 def login():
     error = None

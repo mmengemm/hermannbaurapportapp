@@ -43,12 +43,14 @@ def signup():
         pass2 = form.password2.data
         if pass1 == pass2:
             regex = r"^[a-zA-Z0-9]+[\._]?[a-zA-Z0-9]+[@]\w+[.]\w{2,3}$"
-            if re.match(regex,form.email.data):
+            mail = form.email.data
+            mail = mail.lower()
+            if re.match(regex,mail):
                 ui = UserInformation()
-                funktion = ui.get_funktion(form.email.data)
+                funktion = ui.get_funktion(mail)
                 salt = get_random_string(10)
                 password = hashing.hash_value(pass1,salt=salt)
-                created_user = ui.create_user(form.email.data,form.username.data,password,funktion,salt)
+                created_user = ui.create_user(mail,form.username.data,password,funktion,salt)
                 if created_user is None:
                     return redirect(url_for('login',msg='Du wurderst registriert! Du kannst dich jetzt anmelden.'))
                 else:

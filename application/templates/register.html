@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Hermann Bau Administration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Registration-Form-with-Photo.css')}}">
+</head>
+
+<body style="background: #404040;">
+    <div class="register-photo" style="background: #404040;">
+        <div class="form-container">
+            <form method="post" style="border-top-left-radius: 15px;border-top-right-radius: 15px;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;">
+                <h2 class="text-center"><strong>Registrieren</strong></h2>
+                <div class="form-group">{{ form.email(class="form-control", placeholder="E-Mail") }}</div>
+                <div class="form-group">{{ form.username(class="form-control", placeholder="Benutzername") }}</div>
+                <div class="form-group">{{ form.password1(class="form-control", placeholder="Passwort") }}</div>
+                <div class="form-group">{{ form.password2(class="form-control", placeholder="Passwort bestätigen") }}</div>
+                <div class="form-group">{{ form.submit( class="btn btn-primary btn-block", style="background: #e0053f;" )}}
+                </div>
+                <a class="already" href="/">Du hast bereits ein Konto? melde dich hier an.</a>
+                {% if error %}
+                    <p class="error" style="color: red">{{ error|safe }}</p>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>
+
+</html>

@@ -1,9 +1,14 @@
-from flask import Blueprint,render_template, request,session
+from flask import Blueprint,render_template, request,session,redirect, url_for
 from . import db, app
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 from .db_requests import *
 auth = Blueprint('auth', __name__)
 import os
+import re
+from .random_string import get_random_string
+from flask_hashing import Hashing
+
+hashing = Hashing(app)
 
 @auth.route('/',methods=['GET','POST'])
 def login():
@@ -30,7 +35,29 @@ def login():
 
 @auth.route('/signup')
 def signup():
-    return 'Signup'
+    error = None
+    msg = None
+    form = RegisterForm()
+    if form.validate_on_submit():
+        pass1 = form.password1.data
+        pass2 = form.password2.data
+        if pass1 == pass2:
+            regex = r"^[a-zA-Z0-9]+[\._]?[a-zA-Z0-9]+[@]\w+[.]\w{2,3}$"
+            if re.match(regex,form.email.data):
+                ui = UserInformation()
+                funktion = ui.get_funktion(form.email.data)
+                salt = get_random_string(10)
+                password = hashing.hash_value(pass1,salt=salt)
+                created_user = ui.create_user(form.email.data,form.username.data,password,funktion,salt)
+                if created_user is None:
+                    return redirect(url_for('login',msg='Du wurderst registriert! Du kannst dich jetzt anmelden.'))
+                else:
+                    return redirect(url_for('signup',error=created_user))
+            else:
+                error = 'Deine E-Mail scheint falsch zu sein. Gib sie bitte erneut ein.'
+        else:
+            error = 'Deine Passwörter stimmen nicht überein. Gib sie bitte erneut ein.'
+    return render_template('register.html',form=form,error=error)
 
 @auth.route('/logout')
 def logout():

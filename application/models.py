@@ -4,7 +4,7 @@ date: 2020-09-02
 
 description: database models
 """
-from app import db
+from . import db
 
 
 class User(db.Model):

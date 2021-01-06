@@ -14,7 +14,7 @@ def login():
         os.environ['USERNAME'] = form.username.data
         os.environ['PASSWORD'] = form.password.data
         session['username'] = form.username.data
-        ui = db_requests.UserInformation
+        ui = db_requests.UserInformation()
         user, error = ui.get_user(os.getenv('USERNAME'),os.getenv('PASSWORD'))
         if user is None:
             error = error

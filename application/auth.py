@@ -33,7 +33,7 @@ def login():
 
     return render_template('login.html',form=form,msg=msg, error=error)
 
-@auth.route('/signup')
+@auth.route('/signup', methods=['GET','POST'])
 def signup():
     error = None
     msg = None

@@ -13,6 +13,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = Config.SECRET_KEY
 db = SQLAlchemy(app)
 db.init_app(app)
+
+from .auth import auth as auth_blueprint
+app.register_blueprint(auth_blueprint)
+from .admin import admin as admin_blueprint
+app.register_blueprint(admin_blueprint)
+
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 Talisman(app)
@@ -20,10 +26,6 @@ login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
 
-from .auth import auth as auth_blueprint
-app.register_blueprint(auth_blueprint)
-from .admin import admin as admin_blueprint
-app.register_blueprint(admin_blueprint)
 
 from .models import User
 @login_manager.user_loader

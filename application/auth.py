@@ -1,4 +1,5 @@
 from flask import Blueprint,render_template, request,session,redirect, url_for
+from flask_login import login_user,logout_user,login_required
 from . import db, app
 from .forms import LoginForm, RegisterForm
 from .db_requests import *
@@ -25,6 +26,7 @@ def login():
             error = error
         else:
             session['logged_in'] = True
+            login_user(user)
             admin = user.admin
             if admin:
                 pass
@@ -52,9 +54,9 @@ def signup():
                 password = hashing.hash_value(pass1,salt=salt)
                 created_user = ui.create_user(mail,form.username.data,password,funktion,salt)
                 if created_user is None:
-                    return redirect(url_for('login',msg='Du wurderst registriert! Du kannst dich jetzt anmelden.'))
+                    return redirect(url_for('auth.login',msg='Du wurderst registriert! Du kannst dich jetzt anmelden.'))
                 else:
-                    return redirect(url_for('signup',error=created_user))
+                    return redirect(url_for('auth.signup',error=created_user))
             else:
                 error = 'Deine E-Mail scheint falsch zu sein. Gib sie bitte erneut ein.'
         else:
@@ -62,5 +64,7 @@ def signup():
     return render_template('register.html',form=form,error=error)
 
 @auth.route('/logout')
+@login_required
 def logout():
-    return 'Logout'
+    logout_user()
+    return redirect(url_for('auth.login'))

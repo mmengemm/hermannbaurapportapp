@@ -21,7 +21,7 @@
                 <div class="form-group">{{ form.password2(class="form-control", placeholder="Passwort bestätigen") }}</div>
                 <div class="form-group">{{ form.submit( class="btn btn-primary btn-block", style="background: #e0053f;" )}}
                 </div>
-                <a class="already" href="/">Du hast bereits ein Konto? melde dich hier an.</a>
+                <a class="already" href="{{ url_for('auth.login')}}">Du hast bereits ein Konto? melde dich hier an.</a>
                 {% if error %}
                     <p class="error" style="color: red">{{ error }}</p>
                 {% endif %}

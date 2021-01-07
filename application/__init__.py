@@ -6,7 +6,6 @@ from flask_session import Session
 from flask_talisman import Talisman
 from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager
-from .models import User
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -26,6 +25,7 @@ app.register_blueprint(auth_blueprint)
 from .admin import admin as admin_blueprint
 app.register_blueprint(admin_blueprint)
 
+from .models import User
 @login_manager.user_loader
 def load_user(id):
     return User.query.get(int(id))

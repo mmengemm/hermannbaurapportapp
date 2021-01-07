@@ -12,14 +12,14 @@ app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = Config.SECRET_KEY
-db = SQLAlchemy(app)
-db.init_app(app)
 csrf = CSRFProtect(app)
 csrf.init_app(app)
 Talisman(app)
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
+db = SQLAlchemy(app)
+db.init_app(app)
 
 from .auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)

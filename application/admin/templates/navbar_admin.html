@@ -1,22 +1,22 @@
 <nav class="navbar navbar-light navbar-expand-md navigation-clean" style="color: white;background: #e0053f;">
-    <div class="container"><a class="navbar-brand" href="{{ url_for(adminroute) }}">Hermann Bau GmbH - Administration</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container"><a class="navbar-brand" href="{{ url_for('admin.adminroute') }}">Hermann Bau GmbH - Administration</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse"
             id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="color: white;">Kunden&nbsp;</a>
-                    <div class="dropdown-menu"><a class="dropdown-item" href="{{ url_for(admin.kunde) }}">Erfassen</a><a class="dropdown-item" href="/kundebearbeiten">Bearbeiten</a></div>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="{{ url_for('admin.kunde') }}">Erfassen</a><a class="dropdown-item" href="/kundebearbeiten">Bearbeiten</a></div>
                 </li>
                 <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="color: white;">Baustellen&nbsp;</a>
-                    <div class="dropdown-menu"><a class="dropdown-item" href="{{ url_for(admin.baustelle) }}">Erfassen</a><a class="dropdown-item" href="#">Bearbeiten</a></div>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="{{ url_for('admin.baustelle') }}">Erfassen</a><a class="dropdown-item" href="#">Bearbeiten</a></div>
                 </li>
                 <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="color: white;">Mitarbeiter&nbsp;</a>
-                    <div class="dropdown-menu"><a class="dropdown-item" href="{{ url_for(admin.mitarbeiter) }}">Erfassen</a><a class="dropdown-item" href="#">Bearbeiten</a></div>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="{{ url_for('admin.mitarbeiter') }}">Erfassen</a><a class="dropdown-item" href="#">Bearbeiten</a></div>
                 </li>
                 <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="color: white;">Rapporte&nbsp;</a>
                     <div class="dropdown-menu"><a class="dropdown-item" href="#">Erfassen</a><a class="dropdown-item" href="#">Bearbeiten</a></div>
                 </li>
             </ul>
-            <a href="{{ url_for(auth.logout) }}"><button class="btn btn-primary" type="button" style="background: #e0053f; border: 1px solid white;">Logout</button></a>
+            <a href="{{ url_for('auth.logout') }}"><button class="btn btn-primary" type="button" style="background: #e0053f; border: 1px solid white;">Logout</button></a>
         </div>
     </div>
 </nav>

@@ -30,4 +30,4 @@ login_manager.init_app(app)
 from .models import User
 @login_manager.user_loader
 def load_user(id):
-    return User.query.get(int(id))
+    return User.objects(id=id).first()

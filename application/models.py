@@ -45,14 +45,14 @@ class User(db.Model):
         nullable=False
     )
 
-    def is_authenticated(bool):
-        return bool
+    def is_authenticated(self):
+        return True
     
-    def is_active():
-        return User.active
+    def is_active(self):
+        return True
 
-    def get_id():
-        return User.id
+    def get_id(self):
+        return str(self.id)
 
 class Plz(db.Model):
     """Data model for postcodes"""

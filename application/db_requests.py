@@ -46,8 +46,6 @@ class UserInformation():
                 admin=self.admin,
                 active=self.activated
             )
-            User.is_active()
-            User.is_authenticated(True)
             db.session.add(new_user)
             db.session.commit()
             self.userid = new_user.id

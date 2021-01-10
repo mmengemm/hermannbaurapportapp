@@ -10,6 +10,10 @@
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 }
 
+body{
+  background: #404040;
+}
+
 .register-photo form {
   display: table-cell;
   width: 400px;

@@ -29,7 +29,7 @@ def login():
             login_user(user)
             admin = user.admin
             if admin:
-                pass
+                redirect(url_for('admin.adminroute'))
             else:
                 pass
 

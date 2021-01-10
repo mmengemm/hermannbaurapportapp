@@ -18,6 +18,9 @@ body{
   color: #505e6c;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
 }
+btn .btn-primary .btn-block{
+  background: #e0053f;
+}
 
 .login-clean .illustration {
   text-align: center;

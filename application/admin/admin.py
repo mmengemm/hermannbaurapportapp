@@ -11,3 +11,11 @@ def adminroute():
 def kunde():
 	pass
 
+@admin.route('/baustelle', methods=['GET','POST'])
+def baustelle():
+	pass
+
+@admin.route('/kundenuebersicht', methods=['GET','POST'])
+def kundenuebersicht():
+	pass
+

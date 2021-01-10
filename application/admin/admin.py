@@ -19,3 +19,7 @@ def baustelle():
 def kundenuebersicht():
 	pass
 
+@admin.route('/mitarbeiter', methods=['GET','POST'])
+def mitarbeiter():
+	pass
+

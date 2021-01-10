@@ -44,6 +44,18 @@ class User(db.Model):
         nullable=False
     )
 
+    def is_authenticated(bool):
+        return bool
+    
+    def is_active():
+        active = User.query.filter(
+            active == True
+        ).first()
+        
+        if active:
+            return True
+        else:
+            return False
 
 class Plz(db.Model):
     """Data model for postcodes"""

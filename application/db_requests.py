@@ -75,6 +75,8 @@ class UserInformation():
             self.salt = user.salt
             self.password = user.password
             if self.verify_password(password):
+                db.session.add(user)
+                db.session.commit()
                 return user, None
             else:
                 error = 'Das eingegebene Passwort scheint falsch zu sein \n Versuche es erneut oder setze dein Passwort zurück.'

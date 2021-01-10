@@ -5,7 +5,7 @@ from config import Config
 from flask_session import Session
 from flask_talisman import Talisman
 from flask_wtf.csrf import CSRFProtect
-from flask_login import LoginManager
+from flask.ext.login import LoginManager
 from flask_fontawesome import FontAwesome
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -31,4 +31,4 @@ login_manager.init_app(app)
 from .models import User
 @login_manager.user_loader
 def load_user(id):
-    return User.query.get(int(id))
+    return User.query.filter(User.id == int(id))

@@ -5,6 +5,7 @@ date: 2020-09-02
 description: database models
 """
 from . import db
+from flask_login import UserMixin
 
 
 class User(db.Model):
@@ -48,14 +49,10 @@ class User(db.Model):
         return bool
     
     def is_active():
-        active = User.query.filter(
-            active == True
-        ).first()
-        
-        if active:
-            return True
-        else:
-            return False
+        return User.active
+
+    def get_id():
+        return User.id
 
 class Plz(db.Model):
     """Data model for postcodes"""

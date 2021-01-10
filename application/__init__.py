@@ -6,13 +6,14 @@ from flask_session import Session
 from flask_talisman import Talisman
 from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager
-
+from flask_fontawesome import FontAwesome
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = Config.SECRET_KEY
 db = SQLAlchemy(app)
 db.init_app(app)
+fa = FontAwesome(app)
 
 from .auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)

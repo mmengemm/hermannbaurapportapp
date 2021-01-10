@@ -17,7 +17,7 @@ db.init_app(app)
 from .auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)
 from .admin import admin
-app.register_blueprint(admin.admin)
+app.register_blueprint(admin.admin_blueprint)
 
 csrf = CSRFProtect(app)
 csrf.init_app(app)
@@ -30,4 +30,4 @@ login_manager.init_app(app)
 from .models import User
 @login_manager.user_loader
 def load_user(id):
-    return User.objects(id=id).first()
+    return User.query.get(int(id))

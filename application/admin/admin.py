@@ -4,6 +4,6 @@ from application import db
 admin = Blueprint('admin',__name__)
 
 @admin.route('/admin', methods=['GET','POST'])
-def admin():
+def admimroute():
 	return render_template('admin.html')
 

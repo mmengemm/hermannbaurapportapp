@@ -17,7 +17,7 @@ db.init_app(app)
 from .auth import auth as auth_blueprint
 app.register_blueprint(auth_blueprint)
 from .admin import admin
-app.register_blueprint(admin.Blueprint)
+app.register_blueprint(admin.admin)
 
 csrf = CSRFProtect(app)
 csrf.init_app(app)

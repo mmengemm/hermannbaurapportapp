@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Contact-Form-Clean.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-Clean.css')}}">
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
 <body>
@@ -56,28 +55,12 @@
             {% endif %}
         </div>
     </div>
-    <script>
-        kunden_select = document.getElementById('kunde');
-        baustellen_select = document.getElementById('baustelle');
-
-        kunden_select.onchange = function(){
-            kunde = kunden_select.value;
-
-            fetch('baustelle/'+ kunde).then(function(response){
-                response.json().then(function(data){
-                    optionHTML = '';
-                    for (baustelle of data.getbaustelle){
-                        optionHTML += '<option value="' + baustelle.id + '">' + baustelle.baustelle + '</option>'
-                    }
-                    baustellen_select.innerHTML = optionHTML;
-                });
-            });
-        }
-    </script>
+    <script src="{{ url_for('static', filename='js/dropdown.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
     <script src="{{ url_for('static', filename='js/signature_pad.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 </body>
 
 </html>

@@ -21,7 +21,7 @@ class UserInformation():
         ).first()
         return existing_user
         
-    def create_user(self,email,username,password,funktion,salt):
+    def create_user(self,email,username,password,salt):
         exists = self.check_existing_user(username,email)
 
         if exists:
@@ -29,6 +29,7 @@ class UserInformation():
             return error
         else:
             funktion = self.get_funktion(email)
+            print(funktion)
             if funktion == 'admin':
                 self.admin = True
             else:

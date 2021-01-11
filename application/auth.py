@@ -49,10 +49,9 @@ def signup():
             mail = form.email.data
             if re.match(regex,mail):
                 ui = UserInformation()
-                funktion = ui.get_funktion(mail)
                 salt = get_random_string(10)
                 password = hashing.hash_value(pass1,salt=salt)
-                created_user = ui.create_user(mail,form.username.data,password,funktion,salt)
+                created_user = ui.create_user(mail,form.username.data,password,salt)
                 if created_user is None:
                     return redirect(url_for('auth.login',msg='Du wurderst registriert! Du kannst dich jetzt anmelden.'))
                 else:

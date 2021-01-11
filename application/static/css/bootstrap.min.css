@@ -9399,3 +9399,48 @@ a.text-dark:hover {
   border-color:#dee2e6
  }
 }
+.fa-handshake {
+    color: #404040;
+}
+
+.fa-cogs{
+    color: #404040;
+}
+
+.fa-user{
+    color: #404040;
+}
+
+.fa-folder-open{
+    color: #404040;
+}
+
+.polier{
+    width: 700px;
+}
+
+.m-signature-pad--body canvas {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 250px;
+    border: 1px solid #CCCCCC;
+}
+.clear{
+    color: black;
+    background: white;
+    border: 1px solid #e0053f;
+    width: 177px;
+}
+.rapport-div{
+    height: 100vh;
+}
+.btn .btn-primary .btn-block{
+    background: #e0053f;
+    width: 177px;
+    border: 1px solid white;
+}
+.dropdown-toggle .nav-link{
+    color: white;
+}

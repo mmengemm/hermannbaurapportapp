@@ -21,5 +21,5 @@ class RapportForm(FlaskForm):
     date = DateField('Datum:',validators=[DataRequired()])
     hours = DecimalField("Stunden:",validators=[DataRequired()])
     work = TextAreaField('Arbeit:',validators=[DataRequired()])
-    signature = StringField('Signature')
-    
+    polier = StringField('Signature')
+

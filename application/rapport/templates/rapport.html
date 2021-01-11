@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Hermann Bau Rapport</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Contact-Form-Clean.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-Clean.css')}}">
+    <style type="text/css">
+        .m-signature-pad--body canvas {
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 250px;
+            border: 1px solid #CCCCCC;
+        }
+        .clear{
+            color: black;
+            background: white;
+            border: 1px solid #e0053f;
+            width: 177px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    {% include 'navbar_rapport.html' %}
+    <div style="height: 100vh;">
+        <div class="form-container" style="max-width: 800px;margin-right: auto;margin-left: auto;margin-top: 0px;margin-bottom: auto;">
+            <form class="d-flex flex-column" method="post" onSubmit="submitForm();" style="border-top-left-radius: 15px;border-top-right-radius: 15px;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;max-width: 800px;padding: 50px;">
+                {{ form.csrf_token() }}
+                {{ form.hidden_tag() }}
+                {% if msg %}
+                <p class="msg">{{ msg }}</p>
+                {% endif %}
+                {{ form.csrf_token }}
+                <h2 class="text-center" style="margin-bottom: 40px;"><strong>Rapport erfassen</strong></h2>
+                <div class="form-group d-flex flex-row justify-content-end">
+                    {{ form.kunde.label }}
+                    {{ form.kunde (class="form-control") }}
+                </div>
+                <div class="form-group d-flex flex-row justify-content-end">
+                    {{ form.baustelle.label}}
+                    {{ form.baustelle  (class="form-control")}}
+                </div>
+                <div class="form-group d-flex flex-row justify-content-end">
+                    {{ form.date.label }}
+                    {{ form.date (class="form-control")}}
+                <div class="form-group d-flex flex-row justify-content-end">
+                    {{ form.hours.label }}
+                    {{ form.hours (class="form-control")}}
+                <div class="form-group d-flex flex-row justify-content-end">
+                    {{ form.work.label }}
+                    {{ form.work (class="form-control")}}
+                <div class="form-group d-flex flex-row justify-content-end">
+                    {{ form.polier.label (class="polier")}}
+                <div id="signature-pad" class="signature-pad">
+                        <div class="m-signature-pad--body">
+                            <canvas></canvas>
+                            {{ form.hidden_tag( name="signature",id="signature", value="") }}
+                        </div>
+                        <button type="button" class="clear" onclick="signaturePad.clear();">Löschen</button>
+                </div>
+                <div class="form-group d-flex justify-content-center"><button class="btn btn-primary btn-block" type="submit" style="background: #e0053f;width: 177px;">erfassen</button></div>
+            </form>
+            {% if error %}
+                <p class="error" style="color: red">{{ error|safe }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        kunden_select = document.getElementById('kunde');
+        baustellen_select = document.getElementById('baustelle');
+
+        kunden_select.onchange = function(){
+            kunde = kunden_select.value;
+
+            fetch('baustelle/'+ kunde).then(function(response){
+                response.json().then(function(data){
+                    optionHTML = '';
+                    for (baustelle of data.getbaustelle){
+                        optionHTML += '<option value="' + baustelle.id + '">' + baustelle.baustelle + '</option>'
+                    }
+                    baustellen_select.innerHTML = optionHTML;
+                });
+            });
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+    <script src="{{ url_for('static', filename='js/signature_pad.js')}}"></script>
+</body>
+
+</html>

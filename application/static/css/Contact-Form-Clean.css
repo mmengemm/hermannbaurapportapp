@@ -47,7 +47,9 @@
   padding-left: 12px;
   height: 42px;
 }
-
+.form-control{
+  width: 175px;
+}
 .contact-clean form .form-control:focus {
   border: 1px solid #b2b2b2;
 }

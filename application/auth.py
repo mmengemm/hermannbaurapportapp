@@ -32,7 +32,7 @@ def login():
                 if admin:
                     redirect(url_for('admin.adminroute'))
                 else:
-                    pass
+                    redirect(url_for('rapportBP.rapport'))
 
     return render_template('login.html',form=form,msg=msg, error=error)
 

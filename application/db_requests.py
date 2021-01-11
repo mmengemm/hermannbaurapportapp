@@ -28,6 +28,7 @@ class UserInformation():
             error = 'Benutzer ist bereits registriert.'
             return error
         else:
+            funktion = self.get_funktion(email)
             if funktion == 'admin':
                 self.admin = True
             else:

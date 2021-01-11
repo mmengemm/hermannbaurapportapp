@@ -159,4 +159,7 @@
     color: #fff;
   }
 }
-
+.navbar .navbar-light .navbar-expand-md .navigation-clean{
+  color: white;
+  background: #e0053f;
+}

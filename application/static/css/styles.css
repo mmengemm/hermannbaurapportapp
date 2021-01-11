@@ -38,4 +38,8 @@
 .btn .btn-primary .btn-block{
     background: #e0053f;
     width: 177px;
+    border: 1px solid white;
+}
+.dropdown-toggle .nav-link{
+    color: white;
 }

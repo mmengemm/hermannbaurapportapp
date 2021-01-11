@@ -1,5 +1,5 @@
 from flask import Blueprint,render_template, request,session,redirect, url_for
-from flask_login import login_user,logout_user,login_required
+from flask_login import login_user,logout_user,login_required, current_user
 from . import db, app
 from .forms import LoginForm, RegisterForm
 from .db_requests import *
@@ -16,6 +16,11 @@ def login():
     error = None
     msg = None
     form = LoginForm()
+    if current_user.is_authenticated:
+        if current_user.funktion == 'admin':
+            redirect(url_for('admin.adminroute'))
+        else:
+            pass
     if request.method == 'POST':
         if form.validate_on_submit():
             os.environ['USERNAME'] = form.username.data
@@ -68,3 +73,7 @@ def signup():
 def logout():
     logout_user()
     return redirect(url_for('auth.login'))
+
+
+if __name__ == '__main__':
+    app.run()

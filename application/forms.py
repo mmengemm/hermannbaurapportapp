@@ -22,4 +22,5 @@ class RapportForm(FlaskForm):
     hours = DecimalField("Stunden:",validators=[DataRequired()])
     work = TextAreaField('Arbeit:',validators=[DataRequired()])
     polier = StringField('Signature')
+    submit = SubmitField('Rapport erfassen')
 

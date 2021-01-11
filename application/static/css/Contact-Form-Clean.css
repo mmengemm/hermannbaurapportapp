@@ -94,3 +94,12 @@
   background: #404040;
 }
 
+.text-center{
+  margin-bottom: 40px;
+}
+.form-container{
+  max-width: 800px;margin-right: auto;margin-left: auto;margin-top: 0px;margin-bottom: auto;
+}
+.d-flex .flex-column{
+  border-top-left-radius: 15px;border-top-right-radius: 15px;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;max-width: 800px;padding: 50px;
+}

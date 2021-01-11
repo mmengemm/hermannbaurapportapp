@@ -47,7 +47,6 @@ def signup():
         if pass1 == pass2:
             regex = r"^[a-zA-Z0-9]+[\._]?[a-zA-Z0-9]+[@]\w+[.]\w{2,3}$"
             mail = form.email.data
-            mail = mail.lower()
             if re.match(regex,mail):
                 ui = UserInformation()
                 funktion = ui.get_funktion(mail)

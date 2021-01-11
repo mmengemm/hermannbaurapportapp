@@ -59,7 +59,7 @@ class UserInformation():
         funktion = None
         for address in emailaddresses:
             for kwarg in kwargs:
-                if address == kwarg:
+                if address == kwarg.lower():
                     funktion = 'admin'
                 else:
                     funktion = 'nonadmin'

@@ -16,11 +16,6 @@ def login():
     error = None
     msg = None
     form = LoginForm()
-    if current_user.is_authenticated:
-        if current_user.funktion == 'admin':
-            redirect(url_for('admin.adminroute'))
-        else:
-            pass
     if request.method == 'POST':
         if form.validate_on_submit():
             os.environ['USERNAME'] = form.username.data

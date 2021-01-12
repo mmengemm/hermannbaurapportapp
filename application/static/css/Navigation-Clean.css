@@ -1,5 +1,4 @@
 .navigation-clean {
-  background: #fff;
   padding-top: .75rem;
   padding-bottom: .75rem;
   color: #333;
@@ -7,7 +6,15 @@
   box-shadow: none;
   border: none;
   margin-bottom: 0;
+  color: white;
+  background: #e0053f;
 }
+
+.navbar .navbar-light .navbar-expand-md .navigation-clean{
+  color: white;
+  background: #e0053f;
+}
+
 
 @media (min-width:768px) {
   .navigation-clean {
@@ -158,8 +165,4 @@
   .navigation-clean.navbar-dark .navbar-nav .show .dropdown-menu .dropdown-item {
     color: #fff;
   }
-}
-.navbar .navbar-light .navbar-expand-md .navigation-clean{
-  color: white;
-  background: #e0053f;
 }

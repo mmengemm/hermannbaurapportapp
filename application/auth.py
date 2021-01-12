@@ -30,9 +30,9 @@ def login():
                 login_user(user)
                 admin = user.admin
                 if admin:
-                    redirect(url_for('admin.adminroute'))
+                    return redirect(url_for('admin.adminroute'))
                 else:
-                    redirect(url_for('rapportBP.rapport'))
+                    return redirect(url_for('rapportBP.rapport'))
 
     return render_template('login.html',form=form,msg=msg, error=error)
 

@@ -24,7 +24,8 @@ app.register_blueprint(rapport_blueprint)
 
 csrf = CSRFProtect(app)
 csrf.init_app(app)
-Talisman(app)
+talisman = Talisman(app)
+talisman.content_security_policy_report_only = True
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)

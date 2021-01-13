@@ -18,7 +18,6 @@ app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE='Lax',
 )
-session = Session(app)
 db = SQLAlchemy(app)
 db.init_app(app)
 fa = FontAwesome(app)

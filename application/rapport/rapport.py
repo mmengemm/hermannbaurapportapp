@@ -4,7 +4,7 @@ from application.forms import RapportForm
 from flask_cors import CORS
 
 rapportBP = Blueprint('rapportBP',__name__, template_folder='templates')
-CORS(rapportBp)
+CORS(rapportBP)
 
 @rapportBP.route('/rapport',methods=['GET','POST'])
 def rapport():

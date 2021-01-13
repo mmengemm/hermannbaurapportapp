@@ -1,10 +1,8 @@
 from flask import Blueprint, render_template	
 from flask_login import login_required
 from application import db
-from flask_cors import CORS
 
 admin = Blueprint('admin',__name__, template_folder='templates')
-CORS(admin)
 
 @admin.route('/admin', methods=['GET','POST'])
 @login_required

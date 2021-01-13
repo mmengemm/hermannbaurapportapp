@@ -1,6 +1,5 @@
 from flask import Blueprint,render_template, request,session,redirect, url_for
 from flask_login import login_user,logout_user,login_required, current_user
-from flask_cors import CORS
 from . import db, app
 from .forms import LoginForm, RegisterForm
 from .db_requests import *
@@ -11,7 +10,6 @@ from .random_string import get_random_string
 from flask_hashing import Hashing
 
 hashing = Hashing(app)
-CORS(auth)
 
 @auth.route('/',methods=['GET','POST'])
 def login():

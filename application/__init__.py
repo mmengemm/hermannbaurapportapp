@@ -7,6 +7,7 @@ from flask_talisman import Talisman
 from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager
 from flask_fontawesome import FontAwesome
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -30,6 +31,7 @@ talisman.content_security_policy_report_only = True
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
+CORS(app)
 
 
 from .models import User

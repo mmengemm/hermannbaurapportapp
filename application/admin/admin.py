@@ -1,12 +1,11 @@
 from flask import Blueprint, render_template	
-from flask_login import login_required, roles_required
+from flask_login import login_required
 from application import db
 
 admin = Blueprint('admin',__name__, template_folder='templates')
 
 @admin.route('/admin', methods=['GET','POST'])
 @login_required
-@roles_required('admin')
 def adminhome():
 	return render_template('admin.html')
 

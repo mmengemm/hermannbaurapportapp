@@ -43,3 +43,7 @@
 .dropdown-toggle .nav-link{
     color: white;
 }
+
+.d-flex .flex-column{
+    border-top-left-radius: 15px;border-top-right-radius: 15px;border-bottom-right-radius: 15px;border-bottom-left-radius: 15px;max-width: 800px;padding: 50px;
+}
